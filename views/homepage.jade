@@ -13,10 +13,12 @@ block body
       document.getElementsByClassName('header')[0].style.backgroundColor = '#118798';
     }, 0);
 
+  a(href="/logout") Log out
+
   .default-page
     .header
       h1#main-title.container
-        | A brand new app.
+        | A brand new app. #{user.username}
       h3.container
         | You're looking at:
         code

@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title= title
+  body
+
+    if errors
+      each error in errors
+        p= __(error)
+
+    form(action="/auth/local", method="post")
+      input(type="text", name="identifier", placeholder="Username or Email")
+      input(type="password", name="password", placeholder="Password")
+      button(type="submit") Sign in
+
+    if Object.keys(providers).length
+      h4 You can also use one of these
+
+      each value, key in providers
+        a(href="/auth/" + value.slug)= value.name
