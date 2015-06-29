@@ -9,7 +9,7 @@ module.exports.connections = {
     adapter: 'sails-mongo',
     host: 'localhost',
     port: 27017,
-    database: 'example_db'
+    database: 'sample_db'
   }
 
 };

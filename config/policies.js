@@ -5,10 +5,6 @@
 
 module.exports.policies = {
 
-  '*': ['passport', 'isAuthenticated'],
-
-  'auth': {
-    '*': ['passport']
-  }
+  '*': ['passport']
 
 };

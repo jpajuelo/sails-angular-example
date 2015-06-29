@@ -1,0 +1,21 @@
+extends ../layout
+
+block title
+  | #{ __("User.SignInView.Title") }
+
+block content
+  .navbar.navbar-inverse.navbar-static-top
+    .container
+      .navbar-header
+        a.navbar-brand(href="#")
+          | Brand
+      .navbar-btn.pull-right
+        a.btn.btn-warning(href="/signup")
+          | #{ __("Action.SignUp") }
+
+  .container(ng-app="UserModule")
+    .row
+      .col-md-4.col-md-offset-4
+        .panel.panel-default
+          .panel-body(ng-controller="AuthController")
+            include ../includes/user/signin-form.jade

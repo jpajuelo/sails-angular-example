@@ -1,0 +1,60 @@
+form(name="signUpForm", ng-submit="signUp(signUpModel)", novalidate)
+  .form-group.row
+    .col-sm-6
+      input.form-control(
+        type="text",
+        placeholder=__("FormField.FirstName"),
+        name="firstName",
+        ng-model="signUpModel.firstName",
+        ng-maxlength=30
+      )
+    .col-sm-6
+      input.form-control(
+        type="text",
+        placeholder=__("FormField.LastName"),
+        name="lastName",
+        ng-model="signUpModel.lastName",
+        ng-maxlength=30
+      )
+  .form-group
+    input.form-control(
+      type="email",
+      placeholder=__("FormField.Email")
+      name="email",
+      ng-model="signUpModel.email",
+      required
+    )
+    // ngc-unique="email"
+    .help-block(ng-show="signUpForm.email.$dirty && signUpForm.email.$invalid")
+      .text-danger(ng-show="signUpForm.email.$error.required")
+        | This field is required.
+  .form-group
+    input.form-control(
+      type="text",
+      placeholder=__("FormField.Username"),
+      name="username",
+      ng-model="signUpModel.username",
+      required
+    )
+    // ngc-unique="username"
+  .form-group
+    input.form-control(
+      type="password",
+      name="password",
+      placeholder=__("FormField.Password"),
+      ng-model="signUpModel.password",
+      required,
+      ng-minlength="5"
+    )
+  .form-group
+    input.form-control(
+      type="password",
+      placeholder=__("FormField.ConfirmPassword"),
+      name="confirmPassword",
+      ng-model="signUpExtra.password",
+      required
+    )
+    // ngc-equals="signUpModel.password"
+  .row.text-center
+    button.btn.btn-primary(type="submit", ng-disabled="!signUpForm.$valid")
+      span= __("Action.SignUp")

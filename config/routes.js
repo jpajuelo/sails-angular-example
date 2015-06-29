@@ -5,17 +5,12 @@
 
 module.exports.routes = {
 
-  '/': 'UserController.homepage',
+  '/': 'UserController.home',
+  'get /signup': 'UserController.new',
+  'get /profile': 'UserController.profile',
 
-  'get /login': 'AuthController.login',
-  'get /logout': 'AuthController.logout',
-  'get /register': 'AuthController.register',
-
-  'post /auth/local': 'AuthController.callback',
-  'post /auth/local/:action': 'AuthController.callback',
-
-  'get /auth/:provider': 'AuthController.provider',
-  'get /auth/:provider/callback': 'AuthController.callback',
-  'get /auth/:provider/:action': 'AuthController.callback'
+  'post /signup': 'UserController.signUp',
+  'post /signin': 'UserController.signIn',
+  'get /signout': 'UserController.signOut',
 
 };

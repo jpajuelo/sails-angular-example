@@ -1,9 +1,12 @@
 /**
  * User
  *
- * @description :: TODO: You might write a short summary of how this model works and what it represents here.
- * @docs        :: See http://sailsjs.org/#!/documentation/models
+ * @description :: A short summary of how this model works and what it represents.
+ * @docs        :: http://sailsjs.org/#!/documentation/models
  */
+
+var bcrypt = require('bcryptjs');
+
 
 module.exports = {
 
@@ -31,15 +34,50 @@ module.exports = {
       unique: true
     },
 
-    passports: {
-      collection: 'Passport',
-      via: 'user'
+    password: {
+      type: 'string',
+      required: true
+    },
+
+    staff: {
+      type: 'boolean',
+      defaultsTo: false
     },
 
     fullName: function () {
       return this.firstName + ' ' + this.lastName;
+    },
+
+    checkPassword: function (password, next) {
+      bcrypt.compare(password, this.password, next);
+    },
+
+    toJSON: function () {
+      var obj = this.toObject();
+
+      delete obj.id;
+      delete obj.password;
+
+      return obj;
     }
 
+  },
+
+  beforeCreate: function (values, next) {
+    bcrypt.genSalt(10, function (err, salt) {
+      if (err) {
+        return next(err);
+      }
+
+      bcrypt.hash(values.password, salt, function (err, hash) {
+        if (err) {
+          return next(err);
+        }
+
+        values.password = hash;
+        next();
+      });
+    });
   }
 
 };

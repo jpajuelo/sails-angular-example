@@ -1,0 +1,19 @@
+extends ../layout
+
+block title
+  | Home
+
+block content
+  .navbar.navbar-inverse.navbar-static-top(ng-app="UserModule")
+    .container(ng-controller="AuthController")
+      .navbar-header
+        a.navbar-brand(href="#")
+          | Brand
+      .navbar-btn.btn-group.pull-right
+        if user.staff
+          a.btn.btn-default(href="/admin")
+            | #{ __("Action.GoAdminPage") }
+        a.btn.btn-default(href="/profile")
+          | #{ __("Action.GoProfilePage") }
+        button.btn.btn-default(type="button", ng-click="signOut()")
+          | #{ __("Action.SignOut") }

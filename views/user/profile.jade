@@ -1,0 +1,36 @@
+extends ../layout
+
+block title
+  | Profile
+
+block content
+  .navbar.navbar-inverse.navbar-static-top(ng-app="UserModule")
+    .container(ng-controller="AuthController")
+      .navbar-header
+        a.navbar-brand(href="#")
+          | Brand
+      .navbar-btn.btn-group.pull-right
+        if user.staff
+          a.btn.btn-default(href="/admin")
+            | #{ __("Action.GoAdminPage") }
+        button.btn.btn-default(type="button", ng-click="signOut()")
+          | #{ __("Action.SignOut") }
+
+  .container
+    .row
+      .col-md-4.col-md-offset-4
+        .panel.panel-default
+          .panel-body
+            dl
+              dt
+                | Full name
+              dd= user.fullName()
+              dt
+                | Username
+              dd= user.username
+              dt
+                | Email
+              dd= user.email
+              dt
+                | Staff
+              dd= user.staff

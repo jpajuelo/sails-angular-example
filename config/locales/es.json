@@ -1,5 +1,19 @@
 {
   "Welcome": "Bienvenido",
   "A brand new app.": "Una aplicación de la nueva marca.",
-  "Error.Passport.Generic": "El nombre de usuario y la contraseña no coinciden."
+  "User.SignInForm.Invalid": "El nombre de usuario y la contraseña no coinciden.",
+  "FormField.FirstName": "Nombre",
+  "FormField.LastName": "Apellidos",
+  "FormField.Email": "Email",
+  "FormField.Username": "Nombre de usuario",
+  "FormField.UsernameOrEmail": "Nombre de usuario o Email",
+  "FormField.Password": "Contraseña",
+  "FormField.ConfirmPassword": "Confirmar contraseña",
+  "User.RegView.Title": "Crear cuenta - WAD",
+  "User.SignInView.Title": "Iniciar sesión - WAD",
+  "Action.SignIn": "Iniciar sesión",
+  "Action.SignUp": "Crear cuenta",
+  "Action.SignOut": "Cerrar sesión",
+  "Action.GoProfilePage": "Ir a perfil",
+  "Action.GoAdminPage": "Ir a recursos"
 }
